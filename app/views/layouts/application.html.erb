@@ -17,11 +17,18 @@
       <% end%>
     </div>
     <% if logged_in?%>
-      <form action="<%= session_url %>" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="submit" value="Log out">
-      </form>
+      <nav>
+        <a href="<%= user_url(current_user) %>">My page</a>
+        <br>
+        <a href="<%= subs_url %>">Subs list</a>
+        <br>
+        <a href="<%= new_sub_url %>">Make a new sub</a>
+        <form action="<%= session_url %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="submit" value="Log out">
+        </form>
+      </nav>
     <% end%>
   </header>
     <%= yield %>

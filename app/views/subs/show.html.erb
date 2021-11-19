@@ -1,0 +1,19 @@
+<h1><%= @sub.title %></h1>
+
+<h3>Description</h3>
+<div>
+<%= @sub.description %>
+</div>
+
+<br>
+<div>
+    <% if is_moderator? %>
+        <a href="<%= edit_sub_url(@sub)%>">Edit sub</a>
+        <br>
+        <form action="<%= sub_url(@sub) %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="submit" value="DELETE SUB">
+        </form>
+    <% end%>
+</div>
