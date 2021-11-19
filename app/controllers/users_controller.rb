@@ -27,22 +27,22 @@ class UsersController < ApplicationController
         render :show
     end
 
-    def edit 
-        @user = User.find(params[:id])
-        redirect_to edit_user_url(@user)
-    end
+    # def edit 
+    #     @user = User.find(params[:id])
+    #     redirect_to edit_user_url(@user)
+    # end
 
-    def update 
-        @user = User.find_by(params[:id])
-        @user.username = params[:user][:username]
-        @user.password = params[:user][:password]
-        if @user.save 
-            redirect_to user_url(@user)
-        else 
-            flash[:errors] = "Those changes won't work"
-            redirect_to edit_user_url(@user)
-        end
-    end
+    # def update 
+    #     @user = User.find_by(params[:id])
+    #     @user.username = params[:user][:username]
+    #     @user.password = params[:user][:password]
+    #     if @user.save 
+    #         redirect_to user_url(@user)
+    #     else 
+    #         flash[:errors] = "Those changes won't work"
+    #         redirect_to edit_user_url(@user)
+    #     end
+    # end
 
     def destroy
         @user = User.find_by(params[:id])
